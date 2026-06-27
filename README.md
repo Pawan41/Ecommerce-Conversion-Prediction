@@ -1,314 +1,350 @@
 # 🛒 E-Commerce Conversion Prediction using Machine Learning
 
-![Python](https://img.shields.io/badge/Python-3.13-blue)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
-![XGBoost](https://img.shields.io/badge/XGBoost-Gradient%20Boosting-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+<p align="center">
 
-Predict whether an e-commerce customer will convert into a buyer using Machine Learning.
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikit-learn)
+![XGBoost](https://img.shields.io/badge/XGBoost-Latest-green)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-success)
 
-This project implements an **end-to-end Machine Learning pipeline**, beginning with exploratory data analysis and feature engineering, followed by training multiple classification models, hyperparameter tuning, explainability using SHAP, and deployment through an interactive Streamlit dashboard.
+</p>
 
 ---
 
-# 📌 Table of Contents
+# 📌 Project Overview
 
-- Overview
-- Problem Statement
-- Project Workflow
-- Dataset
-- Features
-- Project Structure
-- Exploratory Data Analysis
+This project predicts whether an **e-commerce customer will complete a purchase (conversion)** using Machine Learning.
+
+The project follows a complete **end-to-end ML pipeline**, including:
+
+- Exploratory Data Analysis (EDA)
 - Feature Engineering
 - Data Preprocessing
-- Machine Learning Models
+- Model Training
 - Hyperparameter Tuning
-- Model Evaluation
-- Explainable AI (SHAP)
-- Streamlit Dashboard
-- Installation
-- Usage
-- Results
-- Future Improvements
-- Technologies Used
-- Author
+- Model Explainability (SHAP)
+- Performance Comparison
+- Streamlit Deployment
 
----
-
-# 📖 Overview
-
-Customer conversion prediction is an important business problem in e-commerce.
-
-Being able to identify potential buyers before they purchase helps businesses to:
-
-- Improve targeted marketing
-- Increase conversion rate
-- Reduce advertising costs
-- Personalize customer experience
-- Improve customer retention
-
-This project predicts whether a customer session will result in a purchase using supervised machine learning algorithms.
+The final deployed model is **XGBoost**, selected after comparing multiple machine learning algorithms.
 
 ---
 
 # 🎯 Problem Statement
 
-Given user browsing behavior such as
+Businesses spend significant resources attracting visitors to their websites.
 
-- Pages viewed
-- Products viewed
-- Device type
-- Traffic source
-- Previous purchases
-- Time spent on website
+However, only a small percentage of visitors actually make a purchase.
 
-predict whether the customer will complete a purchase.
+The objective of this project is to predict whether a customer will convert based on browsing behavior and customer characteristics.
 
-Target Variable:
+This prediction helps businesses improve:
 
-```
-Converted
-
-0 → No Purchase
-
-1 → Purchase
-```
+- Marketing campaigns
+- Personalized recommendations
+- Customer targeting
+- Revenue generation
 
 ---
 
-# 🚀 Project Workflow
+# 📂 Dataset Features
 
-```
-Data Collection
-       │
-       ▼
-Exploratory Data Analysis
-       │
-       ▼
-Feature Engineering
-       │
-       ▼
-Data Preprocessing
-       │
-       ▼
-Train/Test Split
-       │
-       ▼
-Model Training
-       │
-       ▼
-Hyperparameter Tuning
-       │
-       ▼
-Model Evaluation
-       │
-       ▼
-Feature Importance
-       │
-       ▼
-SHAP Explainability
-       │
-       ▼
-Prediction Pipeline
-       │
-       ▼
-Streamlit Deployment
-```
+The dataset contains customer browsing information such as:
 
----
+- User_ID
+- Age
+- Income
+- City Tier
+- Device Type
+- Traffic Source
+- Pages Viewed
+- Products Viewed
+- Time On Site
+- Previous Purchases
+- Discount Seen
+- Browser Version
+- Campaign Code
 
-# 📊 Dataset
-
-The dataset contains **10,000 customer sessions**.
-
-### Features
-
-| Feature | Description |
-|----------|-------------|
-| Age | Customer age |
-| Income | Annual income |
-| City_Tier | Customer city tier |
-| Device_Type | Mobile/Desktop/Tablet |
-| Traffic_Source | Website traffic source |
-| Pages_Viewed | Number of pages visited |
-| Products_Viewed | Number of products viewed |
-| Time_On_Site | Time spent on website |
-| Previous_Purchases | Previous orders |
-| Discount_Seen | Whether discount was shown |
-| Browser_Version | Browser version |
-| Campaign_Code | Marketing campaign |
-
-Target:
+Target Variable
 
 ```
 Converted
 ```
+
+- 1 → Customer Converted
+- 0 → Customer Did Not Convert
 
 ---
 
 # ⚙️ Feature Engineering
 
-New features created include:
+Three additional features were created:
 
-- Views_Per_Product
-- Purchase_Engagement
-- Time_Per_Page
+| Feature | Description |
+|----------|-------------|
+| Views_Per_Product | Pages Viewed / Products Viewed |
+| Purchase_Engagement | Pages Viewed × Previous Purchases |
+| Time_Per_Page | Time On Site / Pages Viewed |
 
-These engineered features improve the predictive performance of the models.
-
----
-
-# 🧹 Data Preprocessing
-
-The preprocessing pipeline includes:
-
-- Missing value imputation
-- Standard Scaling
-- One-Hot Encoding
-- Train-Test Split
-
-Scikit-Learn Pipelines are used to ensure reproducibility.
+These engineered features improved overall model performance.
 
 ---
 
-# 🤖 Machine Learning Models
+# 🛠️ Machine Learning Pipeline
 
-The following models were trained:
+```
+Raw Dataset
+      │
+      ▼
+Exploratory Data Analysis
+      │
+      ▼
+Feature Engineering
+      │
+      ▼
+Data Preprocessing
+      │
+      ▼
+Train-Test Split
+      │
+      ▼
+Model Training
+      │
+      ▼
+Hyperparameter Tuning
+      │
+      ▼
+Model Evaluation
+      │
+      ▼
+SHAP Explainability
+      │
+      ▼
+Prediction Pipeline
+      │
+      ▼
+Streamlit Dashboard
+```
+
+---
+
+# 🤖 Models Trained
+
+The following machine learning models were trained and compared:
 
 - Logistic Regression
 - Random Forest
 - Tuned Random Forest
-- XGBoost
+- XGBoost (Best Model)
 
 ---
 
-# 🔍 Hyperparameter Tuning
-
-Random Forest was optimized using GridSearchCV.
-
-Parameters tuned:
-
-- n_estimators
-- max_depth
-- min_samples_split
-- min_samples_leaf
-- max_features
-
----
-
-# 📈 Model Evaluation
-
-Evaluation metrics used:
-
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- ROC Curve
-- Confusion Matrix
-
-### Model Performance
+# 📊 Model Performance
 
 | Model | Accuracy | Precision | Recall | F1 Score |
-|--------|-----------|------------|----------|-----------|
+|--------|----------|-----------|--------|----------|
 | Logistic Regression | 0.7105 | 0.5576 | 0.2982 | 0.3886 |
 | Random Forest | 0.6935 | 0.5054 | 0.3047 | 0.3802 |
 | Tuned Random Forest | 0.7065 | 0.5391 | 0.3355 | 0.4136 |
-| XGBoost | 0.6980 | 0.5156 | 0.3485 | **0.4159** |
+| **XGBoost** | **0.6980** | **0.5156** | **0.3485** | **0.4159** |
+
+Although Logistic Regression achieved the highest accuracy, **XGBoost produced the best F1 Score and Recall**, making it the preferred model for this imbalanced classification problem.
 
 ---
 
-# 📉 Feature Importance
+# 📈 Model Comparison
 
-XGBoost feature importance was used to identify the most influential features affecting customer conversion.
-
-Example:
-
-- Pages Viewed
-- Discount Seen
-- Previous Purchases
-- Traffic Source
-- Time on Site
+<p align="center">
+<img src="reports/figures/model_comparison.png" width="90%">
+</p>
 
 ---
 
-# 🧠 Explainable AI (SHAP)
+# 📊 Exploratory Data Analysis
 
-The project includes SHAP explainability to understand:
+## Missing Values
 
-- Feature contribution
-- Global model interpretation
-- Local prediction explanation
-
-Generated visualization:
-
-- SHAP Summary Plot
+<p align="center">
+<img src="reports/figures/missing_values.png" width="80%">
+</p>
 
 ---
 
-# 💻 Streamlit Dashboard
+## Target Distribution
 
-The project includes a fully interactive dashboard.
-
-Features:
-
-- Upload CSV file
-- Predict customer conversion
-- Download predictions
-- View model comparison
-- Display feature importance
-- SHAP visualization
-- Performance metrics
+<p align="center">
+<img src="reports/figures/target_distribution.png" width="80%">
+</p>
 
 ---
 
-# 📂 Project Structure
+## Correlation Heatmap
+
+<p align="center">
+<img src="reports/figures/correlation_heatmap.png" width="80%">
+</p>
+
+---
+
+# 🔥 Feature Importance (XGBoost)
+
+The XGBoost model identifies the most influential features affecting customer conversion.
+
+<p align="center">
+<img src="reports/figures/feature_importance.png" width="90%">
+</p>
+
+---
+
+# 🧠 SHAP Explainability
+
+SHAP values explain how each feature contributes to the model's prediction.
+
+<p align="center">
+<img src="reports/figures/shap_summary.png" width="90%">
+</p>
+
+---
+
+# 📈 ROC Curves
+
+## Logistic Regression
+
+<p align="center">
+<img src="reports/figures/logistic_regression_roc_curve.png" width="80%">
+</p>
+
+---
+
+## Random Forest
+
+<p align="center">
+<img src="reports/figures/random_forest_roc_curve.png" width="80%">
+</p>
+
+---
+
+## Tuned Random Forest
+
+<p align="center">
+<img src="reports/figures/tuned_random_forest_roc_curve.png" width="80%">
+</p>
+
+---
+
+## XGBoost
+
+<p align="center">
+<img src="reports/figures/xgboost_roc_curve.png" width="80%">
+</p>
+
+---
+
+# 📉 Precision-Recall Curves
+
+## Logistic Regression
+
+<p align="center">
+<img src="reports/figures/logistic_regression_pr_curve.png" width="80%">
+</p>
+
+---
+
+## Random Forest
+
+<p align="center">
+<img src="reports/figures/random_forest_pr_curve.png" width="80%">
+</p>
+
+---
+
+## Tuned Random Forest
+
+<p align="center">
+<img src="reports/figures/tuned_random_forest_pr_curve.png" width="80%">
+</p>
+
+---
+
+## XGBoost
+
+<p align="center">
+<img src="reports/figures/xgboost_pr_curve.png" width="80%">
+</p>
+
+---
+
+# 💻 Interactive Streamlit Dashboard
+
+The project includes an interactive Streamlit dashboard that allows users to:
+
+- Upload customer CSV files
+- Predict customer conversions
+- Download prediction results
+- View model metrics
+- Compare ML models
+- Explore Feature Importance
+- Understand SHAP explanations
+
+> Add your dashboard screenshot below.
+
+<p align="center">
+<img src="reports/figures/dashboard.png" width="95%">
+</p>
+
+---
+
+# 📁 Project Structure
 
 ```
-Ecommerce-Conversion-Prediction
+Ecommerce-Conversion-Prediction/
 │
-├── app.py
-├── main.py
-├── requirements.txt
-├── README.md
+├── data/
+│   ├── raw/
+│   └── processed/
 │
-├── data
-│   ├── raw
-│   └── processed
-│
-├── models
+├── models/
 │   ├── xgboost_model.pkl
 │   └── preprocessor.pkl
 │
-├── reports
-│   ├── figures
-│   └── results
+├── reports/
+│   ├── figures/
+│   └── results/
 │
-├── src
+├── src/
 │   ├── config.py
 │   ├── data_loader.py
 │   ├── eda.py
-│   ├── feature_engineering.py
 │   ├── preprocessing.py
+│   ├── feature_engineering.py
 │   ├── model.py
 │   ├── tuning.py
 │   ├── evaluate.py
 │   ├── validation.py
 │   ├── predict.py
-│   └── save_model.py
+│   └── visualization.py
+│
+├── app.py
+├── main.py
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-# 🛠 Installation
+# 🚀 Installation
 
 Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/Ecommerce-Conversion-Prediction.git
+```
 
+Move into the project
+
+```bash
 cd Ecommerce-Conversion-Prediction
 ```
 
@@ -326,7 +362,7 @@ Activate
 venv\Scripts\activate
 ```
 
-### Linux/Mac
+### Mac/Linux
 
 ```bash
 source venv/bin/activate
@@ -340,7 +376,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Training Pipeline
+# ▶️ Run Training
 
 ```bash
 python main.py
@@ -348,7 +384,7 @@ python main.py
 
 ---
 
-# ▶️ Launch Dashboard
+# 🌐 Run Streamlit Dashboard
 
 ```bash
 streamlit run app.py
@@ -356,56 +392,31 @@ streamlit run app.py
 
 ---
 
-# 📷 Dashboard Preview
-
-### Home Page
-
-> *(Add screenshot here)*
-
----
-
-### Feature Importance
-
-> *(Add screenshot here)*
-
----
-
-### SHAP Summary
-
-> *(Add screenshot here)*
-
----
-
-### Model Comparison
-
-> *(Add screenshot here)*
-
----
-
-# 📌 Technologies Used
+# 📦 Libraries Used
 
 - Python
 - Pandas
 - NumPy
-- Scikit-Learn
-- XGBoost
-- SHAP
 - Matplotlib
 - Seaborn
+- Scikit-learn
+- XGBoost
+- SHAP
 - Streamlit
 - Joblib
 
 ---
 
-# 🔮 Future Improvements
+# 📌 Future Improvements
 
-- LightGBM
-- CatBoost
-- Optuna Hyperparameter Optimization
-- FastAPI Deployment
-- Docker Support
-- CI/CD using GitHub Actions
-- Cloud Deployment (AWS/GCP/Azure)
+- LightGBM implementation
+- CatBoost implementation
+- Deep Learning Model
+- Ensemble Learning
+- MLflow Experiment Tracking
+- Docker Deployment
+- CI/CD Pipeline
+- Cloud Deployment (AWS / Azure / GCP)
 
 ---
 
@@ -413,10 +424,14 @@ streamlit run app.py
 
 **Pawan Kumar**
 
-M.Tech (Data Science)
+M.Tech (Computer Science - Data Science)
 
-Machine Learning | Data Science | Python | AI
+Machine Learning | Data Science | AI | Python
+
+GitHub: https://github.com/Pawan41
+
+LinkedIn: www.linkedin.com/in/pawan-kumar-117533200
 
 ---
 
-⭐ If you found this project useful, consider giving it a star.
+# ⭐ If you found this project useful, don't forget to star the repository!
