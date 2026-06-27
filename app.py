@@ -44,7 +44,7 @@ try:
 
     st.sidebar.dataframe(
         metrics,
-        use_container_width=True
+        width="stretch"
     )
 
 except:
@@ -97,7 +97,7 @@ if uploaded_file is not None:
 
     st.dataframe(
         df.head(),
-        use_container_width=True
+        width="stretch"
     )
 
     col1, col2 = st.columns(2)
@@ -125,7 +125,7 @@ if uploaded_file is not None:
 
         st.dataframe(
             predictions,
-            use_container_width=True
+            width="stretch"
         )
 
         st.write("")
@@ -190,7 +190,7 @@ with col1:
 
     st.image(
         "reports/figures/feature_importance.png",
-        use_container_width=True
+        width="stretch"
     )
 
 with col2:
@@ -199,7 +199,7 @@ with col2:
 
     st.image(
         "reports/figures/shap_summary.png",
-        use_container_width=True
+        width="stretch"
     )
 
 st.divider()
@@ -212,7 +212,7 @@ st.header("📊 Model Comparison")
 
 st.image(
     "reports/figures/model_comparison.png",
-    use_container_width=True
+    width="stretch"
 )
 
 st.divider()
