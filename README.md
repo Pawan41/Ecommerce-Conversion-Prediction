@@ -13,6 +13,19 @@
 
 ---
 
+# 🌐 Live Demo
+
+### 🚀 Try the application here
+
+**https://ecommerce-conversion-prediction.streamlit.app/**
+
+Or click the badge below:
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ecommerce-conversion-prediction.streamlit.app/)
+
+---
+
+
 # 📌 Project Overview
 
 This project predicts whether an **e-commerce customer will complete a purchase (conversion)** using Machine Learning.
