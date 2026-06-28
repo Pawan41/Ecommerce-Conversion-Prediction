@@ -352,7 +352,7 @@ Ecommerce-Conversion-Prediction/
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Ecommerce-Conversion-Prediction.git
+git clone https://github.com/Pawan41/Ecommerce-Conversion-Prediction
 ```
 
 Move into the project
