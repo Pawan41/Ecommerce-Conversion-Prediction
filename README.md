@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Conversion Prediction using Machine Learning
+# E-Commerce Conversion Prediction using Machine Learning
 
 <p align="center">
 
@@ -13,9 +13,9 @@
 
 ---
 
-# 🌐 Live Demo
+# Live Demo
 
-### 🚀 Try the application here
+### Try the application here
 
 **https://ecommerce-conversion-prediction.streamlit.app/**
 
@@ -26,7 +26,7 @@ Or click the badge below:
 ---
 
 
-# 📌 Project Overview
+# Project Overview
 
 This project predicts whether an **e-commerce customer will complete a purchase (conversion)** using Machine Learning.
 
@@ -45,7 +45,7 @@ The final deployed model is **XGBoost**, selected after comparing multiple machi
 
 ---
 
-# 🎯 Problem Statement
+# Problem Statement
 
 Businesses spend significant resources attracting visitors to their websites.
 
@@ -62,7 +62,7 @@ This prediction helps businesses improve:
 
 ---
 
-# 📂 Dataset Features
+# Dataset Features
 
 The dataset contains customer browsing information such as:
 
@@ -91,7 +91,7 @@ Converted
 
 ---
 
-# ⚙️ Feature Engineering
+# Feature Engineering
 
 Three additional features were created:
 
@@ -105,7 +105,7 @@ These engineered features improved overall model performance.
 
 ---
 
-# 🛠️ Machine Learning Pipeline
+# Machine Learning Pipeline
 
 ```
 Raw Dataset
@@ -143,7 +143,7 @@ Streamlit Dashboard
 
 ---
 
-# 🤖 Models Trained
+# Models Trained
 
 The following machine learning models were trained and compared:
 
@@ -154,7 +154,7 @@ The following machine learning models were trained and compared:
 
 ---
 
-# 📊 Model Performance
+# Model Performance
 
 | Model | Accuracy | Precision | Recall | F1 Score |
 |--------|----------|-----------|--------|----------|
@@ -167,7 +167,7 @@ Although Logistic Regression achieved the highest accuracy, **XGBoost produced t
 
 ---
 
-# 📈 Model Comparison
+# Model Comparison
 
 <p align="center">
 <img src="reports/figures/model_comparison.png" width="90%">
@@ -175,7 +175,7 @@ Although Logistic Regression achieved the highest accuracy, **XGBoost produced t
 
 ---
 
-# 📊 Exploratory Data Analysis
+# Exploratory Data Analysis
 
 ## Missing Values
 
@@ -201,7 +201,7 @@ Although Logistic Regression achieved the highest accuracy, **XGBoost produced t
 
 ---
 
-# 🔥 Feature Importance (XGBoost)
+# Feature Importance (XGBoost)
 
 The XGBoost model identifies the most influential features affecting customer conversion.
 
@@ -211,7 +211,7 @@ The XGBoost model identifies the most influential features affecting customer co
 
 ---
 
-# 🧠 SHAP Explainability
+# SHAP Explainability
 
 SHAP values explain how each feature contributes to the model's prediction.
 
@@ -221,7 +221,7 @@ SHAP values explain how each feature contributes to the model's prediction.
 
 ---
 
-# 📈 ROC Curves
+# ROC Curves
 
 ## Logistic Regression
 
@@ -255,7 +255,7 @@ SHAP values explain how each feature contributes to the model's prediction.
 
 ---
 
-# 📉 Precision-Recall Curves
+# Precision-Recall Curves
 
 ## Logistic Regression
 
@@ -289,7 +289,7 @@ SHAP values explain how each feature contributes to the model's prediction.
 
 ---
 
-# 💻 Interactive Streamlit Dashboard
+# Interactive Streamlit Dashboard
 
 The project includes an interactive Streamlit dashboard that allows users to:
 
@@ -309,7 +309,7 @@ The project includes an interactive Streamlit dashboard that allows users to:
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 ```
 Ecommerce-Conversion-Prediction/
@@ -347,7 +347,7 @@ Ecommerce-Conversion-Prediction/
 
 ---
 
-# 🚀 Installation
+# Installation
 
 Clone the repository
 
@@ -389,7 +389,7 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run Training
+# Run Training
 
 ```bash
 python main.py
@@ -397,7 +397,7 @@ python main.py
 
 ---
 
-# 🌐 Run Streamlit Dashboard
+# Run Streamlit Dashboard
 
 ```bash
 streamlit run app.py
@@ -405,7 +405,7 @@ streamlit run app.py
 
 ---
 
-# 📦 Libraries Used
+# Libraries Used
 
 - Python
 - Pandas
@@ -420,7 +420,7 @@ streamlit run app.py
 
 ---
 
-# 📌 Future Improvements
+# Future Improvements
 
 - LightGBM implementation
 - CatBoost implementation
@@ -433,7 +433,7 @@ streamlit run app.py
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Pawan Kumar**
 
@@ -447,4 +447,4 @@ LinkedIn: www.linkedin.com/in/pawan-kumar-117533200
 
 ---
 
-# ⭐ If you found this project useful, don't forget to star the repository!
+# If you found this project useful, don't forget to star the repository!
