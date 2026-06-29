@@ -301,11 +301,6 @@ The project includes an interactive Streamlit dashboard that allows users to:
 - Explore Feature Importance
 - Understand SHAP explanations
 
-> Add your dashboard screenshot below.
-
-<p align="center">
-<img src="reports/figures/dashboard.png" width="95%">
-</p>
 
 ---
 
